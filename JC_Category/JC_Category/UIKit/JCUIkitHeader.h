@@ -10,5 +10,11 @@
 #define JCUIkitHeader_h
 
 #import "UIDevice+JCCustom.h"
+#import "UIImageView+JCColor.h"
+#import "UIImage+JCLaunchImage.h"
+#import "UINavigationBar+JCCustom.h"
+#import "UIView+JCCustom.h"
+#import "UIColor+JCCaculator.h"
+#import "UITableViewCell+JCRoundCorner.h"
 
 #endif /* JCUIkitHeader_h */

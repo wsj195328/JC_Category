@@ -19,6 +19,11 @@
                           color:(UIColor *)color
                         opacity:(CGFloat)opacity;  // opacity (0 ~ 1)
 
+
+//显示信息 <show>
++ (void)JC_ShowMessage:(NSString *)message;
+
+
 // MARK:只读属性 (readOnly)
 @property (nonatomic,assign,readonly) CGFloat left;
 @property (nonatomic,assign,readonly) CGFloat top;

@@ -9,5 +9,9 @@
 #ifndef JCFundationHeader_h
 #define JCFundationHeader_h
 
+#import "NSData+JCCaculator.h"
+#import "NSString+JCCustom.h"
+#import "NSArray+JCLog.h"
+#import "NSObject+JCLog.h"
 
 #endif /* JCFundationHeader_h */

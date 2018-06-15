@@ -8,6 +8,9 @@
 
 #import "ViewController.h"
 #import "JCUIkitHeader.h"
+#import "TestObj.h"
+#import "JCFundationHeader.h"
+
 
 @interface ViewController ()
 
@@ -19,16 +22,25 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 
-    
+
     
 }
 
 - (IBAction)Btn1_Event:(id)sender {
 
-    [UIDevice JC_JumpSystemItemString:@"General&path=ACCESSIBILITY" handle:^(BOOL isSuccess) {
+    NSArray *temp = @[@"1中文是吗",@"3",@"6"];
+    NSLog(@"%@",temp);
 
-        NSLog(@"success %@",isSuccess?@"YES":@"NO");
-    }];
+    NSArray *temp_Array = @[[TestObj new],[TestObj new]];
+    NSLog(@"%@",temp_Array);
+
+    NSLog(@"%@",temp_Array.firstObject);
+
+//    
+//    [UIDevice JC_JumpSystemItemString:@"General&path=ACCESSIBILITY" handle:^(BOOL isSuccess) {
+//
+//        NSLog(@"success %@",isSuccess?@"YES":@"NO");
+//    }];
 }
 
 - (void)didReceiveMemoryWarning {

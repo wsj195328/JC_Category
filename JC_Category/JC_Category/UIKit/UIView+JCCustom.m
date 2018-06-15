@@ -28,6 +28,36 @@
     self.clipsToBounds = NO;
 }
 
++ (void)JC_ShowMessage:(NSString *)message {
+
+    UIWindow * window = [UIApplication sharedApplication].keyWindow;
+    UIView *showview =  [[UIView alloc]init];
+    showview.backgroundColor = [UIColor colorWithWhite:0.2 alpha:0.7];
+    showview.frame = CGRectMake(1, 1, 1, 1);
+    showview.alpha = 1.0f;
+    showview.layer.cornerRadius = 5.0f;
+    showview.layer.masksToBounds = YES;
+    [window addSubview:showview];
+
+    UILabel *label = [[UILabel alloc]init];
+    CGSize LabelSize = [message boundingRectWithSize:CGSizeMake(290, 900) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:17]} context:nil].size;
+
+    label.frame = CGRectMake(10, 5, LabelSize.width, LabelSize.height);
+    label.text = message;
+    label.textColor = [UIColor whiteColor];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont boldSystemFontOfSize:15];
+    [showview addSubview:label];
+    showview.frame = CGRectMake((SCREEN_WIDTH - LabelSize.width - 20)/2, SCREEN_HEIGHT*0.765, LabelSize.width+20, LabelSize.height+10);
+    [UIView animateWithDuration:2 animations:^{
+
+        showview.alpha = 0;
+    } completion:^(BOOL finished) {
+
+        [showview removeFromSuperview];
+    }];
+}
 
 #pragma mark - 坐标计算相关(position relative) ⤵️
 #pragma mark -
