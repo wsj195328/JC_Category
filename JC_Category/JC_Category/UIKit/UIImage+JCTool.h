@@ -18,9 +18,10 @@
 
 //图片处理 <image handel>
 + (UIImage *)JC_ImageBy:(UIImage *)img
-               ClipRect:(CGRect)rect;
+               ClipRect:(CGRect)rect;   //图片裁剪
 
 - (UIImage *)JC_StretchImageY:(NSInteger)y_Value
                             X:(NSInteger)x_Value;
+
 
 @end

@@ -9,9 +9,15 @@
 #ifndef JCFundationHeader_h
 #define JCFundationHeader_h
 
+#import "JCMacro.h"
+#import "JCSingleton.h"
+#import "NSObject+JCRuntime.h"
+#import "NSObject+JCLog.h"
+#import "NSDate+JCDate.h"
 #import "NSData+JCCaculator.h"
 #import "NSString+JCCustom.h"
+#import "NSString+JCTools.h"
 #import "NSArray+JCLog.h"
-#import "NSObject+JCLog.h"
+#import "NSDictionary+JCLog.h"
 
 #endif /* JCFundationHeader_h */

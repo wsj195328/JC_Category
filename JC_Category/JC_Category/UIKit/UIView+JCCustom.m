@@ -59,6 +59,7 @@
     }];
 }
 
+
 #pragma mark - 坐标计算相关(position relative) ⤵️
 #pragma mark -
 
@@ -158,6 +159,111 @@
     self.frame = frame;
 }
 
+#pragma mark - IB相关
+#pragma mark -
 
+- (void)setCornerRadius:(NSInteger)cornerRadius
+{
+    self.layer.cornerRadius = cornerRadius;
+    self.layer.masksToBounds = cornerRadius > 0;
+}
+
+- (NSInteger)cornerRadius
+{
+    return self.layer.cornerRadius;
+}
+
+- (void)setBorderWidth:(NSInteger)borderWidth
+{
+    self.layer.borderWidth = borderWidth;
+}
+
+- (NSInteger)borderWidth
+{
+    return self.layer.borderWidth;
+}
+
+- (void)setBorderColor:(UIColor *)borderColor
+{
+    self.layer.borderColor = borderColor.CGColor;
+}
+
+- (UIColor *)borderColor
+{
+    return [UIColor colorWithCGColor:self.layer.borderColor];
+}
+
+- (void)setBorderHexRgb:(NSString *)borderHexRgb
+{
+    NSScanner *scanner = [NSScanner scannerWithString:borderHexRgb];
+    unsigned hexNum;
+    //这里是将16进制转化为10进制
+    if (![scanner scanHexInt:&hexNum])
+    return;
+    self.layer.borderColor = [self colorWithRGBHex:hexNum].CGColor;
+}
+
+- (void)setMasksToBounds:(BOOL)bounds
+{
+    self.layer.masksToBounds = bounds;
+}
+
+- (UIColor *)colorWithRGBHex:(UInt32)hex
+{
+    int r = (hex >> 16) & 0xFF;
+    int g = (hex >> 8) & 0xFF;
+    int b = (hex) & 0xFF;
+    return [UIColor colorWithRed:r / 255.0f
+                           green:g / 255.0f
+                            blue:b / 255.0f
+                           alpha:1.0f];
+}
+
+
+- (UIView *)JC_FirstResponder {
+    
+    if (([self isKindOfClass:[UITextField class]] || [self isKindOfClass:[UITextView class]])
+        && (self.isFirstResponder)) {
+        return self;
+    }
+    
+    for (UIView *v in self.subviews){
+        UIView *fv = [v JC_FirstResponder];
+        if (fv)
+        {
+            return fv;
+        }
+    }
+    return nil;
+}
+
+- (UIViewController *)JC_CurrentViewController {
+    
+    UIResponder *responder = self.nextResponder;
+    do
+    {
+        if ([responder isKindOfClass:[UIViewController class]])
+        {
+            return (UIViewController *)responder;
+        }
+        responder = responder.nextResponder;
+    }
+    while (responder);
+    
+    return nil;
+}
+
++ (UIImage *)JC_shotImage:(UIView *)view {
+    
+    UIGraphicsBeginImageContextWithOptions(view.bounds.size, YES, 0);
+    
+    [view drawViewHierarchyInRect:view.bounds afterScreenUpdates:YES];
+    
+    UIImage *result = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return result;
+}
 
 @end

@@ -12,7 +12,18 @@
 
 @interface UIColor (JCCaculator)
 
-// MARK:十六进制转 UIColor (HEX to UIColor)
+// TODO:颜色转换
+
++ (instancetype)JC_ColorWithRed:(NSInteger)red
+                          green:(NSInteger)green
+                           blue:(NSInteger)blue;
+
+// 十六进制转 UIColor (HEX to UIColor)
 + (UIColor *)JC_ColorFromHexCode:(NSString *)hexString;
+
+// 随机
++ (instancetype)JC_RandomColor;
+
++ (instancetype)JC_GradientFromColor:(UIColor*)fromColor toColor:(UIColor*)toColor withHeight:(CGFloat)height;
 
 @end

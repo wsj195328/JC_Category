@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+IB_DESIGNABLE
+
 #define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
 #define SCREEN_WIDTH  [UIScreen mainScreen].bounds.size.width
 
@@ -25,15 +27,33 @@
 
 
 // MARK:只读属性 (readOnly)
-@property (nonatomic,assign,readonly) CGFloat left;
-@property (nonatomic,assign,readonly) CGFloat top;
-@property (nonatomic,assign,readonly) CGFloat right;
-@property (nonatomic,assign,readonly) CGFloat bottom;
-@property (nonatomic,assign,readonly) CGFloat width;
-@property (nonatomic,assign,readonly) CGFloat height;
-@property (nonatomic,assign,readonly) CGFloat centerX;
-@property (nonatomic,assign,readonly) CGFloat centerY;
-@property (nonatomic,assign,readonly) CGPoint origin;
-@property (nonatomic,assign,readonly) CGSize  size;
+@property (nonatomic,assign,readwrite) CGFloat left;
+@property (nonatomic,assign,readwrite) CGFloat top;
+@property (nonatomic,assign,readwrite) CGFloat right;
+@property (nonatomic,assign,readwrite) CGFloat bottom;
+@property (nonatomic,assign,readwrite) CGFloat width;
+@property (nonatomic,assign,readwrite) CGFloat height;
+@property (nonatomic,assign,readwrite) CGFloat centerX;
+@property (nonatomic,assign,readwrite) CGFloat centerY;
+@property (nonatomic,assign,readwrite) CGPoint origin;
+@property (nonatomic,assign,readwrite) CGSize  size;
+
+// MARK:IB视图 <IBInspectable>
+
+@property (assign,nonatomic) IBInspectable NSInteger cornerRadius;
+@property (assign,nonatomic) IBInspectable BOOL  masksToBounds;
+@property (assign,nonatomic) IBInspectable NSInteger borderWidth;
+@property (strong,nonatomic) IBInspectable NSString  *borderHexRgb;
+@property (strong,nonatomic) IBInspectable UIColor   *borderColor;
+
+//第一响应者 <first>
+- (UIView *)JC_FirstResponder;
+
+//当前viewcontroler
+- (UIViewController *)JC_CurrentViewController;
+
++ (UIImage *)JC_shotImage:(UIView *)view; //截图
+
+
 
 @end

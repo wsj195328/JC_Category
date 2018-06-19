@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A2BA7F9320D76DC500A3064F /* UILabel+JCFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = A2BA7F9220D76DC500A3064F /* UILabel+JCFunctions.m */; };
+		A2BA7F9820D770B900A3064F /* UIDevice+JCDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A2BA7F9520D770B800A3064F /* UIDevice+JCDeviceInfo.m */; };
+		A2BA7F9920D770B900A3064F /* UIImage+JCCustom.m in Sources */ = {isa = PBXBuildFile; fileRef = A2BA7F9720D770B900A3064F /* UIImage+JCCustom.m */; };
+		A2BA7F9C20D776E000A3064F /* NSDate+JCDate.m in Sources */ = {isa = PBXBuildFile; fileRef = A2BA7F9B20D776E000A3064F /* NSDate+JCDate.m */; };
+		A2BA7F9F20D7773D00A3064F /* NSObject+JCRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = A2BA7F9D20D7773D00A3064F /* NSObject+JCRuntime.m */; };
+		A2BA7FA220D7775500A3064F /* NSString+JCTools.m in Sources */ = {isa = PBXBuildFile; fileRef = A2BA7FA120D7775500A3064F /* NSString+JCTools.m */; };
+		A2BA7FA520D7779500A3064F /* UIButton+JCCustom.m in Sources */ = {isa = PBXBuildFile; fileRef = A2BA7FA320D7779400A3064F /* UIButton+JCCustom.m */; };
 		CE8E45BD20C7C72D006292E8 /* UIImageView+JCColor.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8E45BC20C7C72D006292E8 /* UIImageView+JCColor.m */; };
 		CE8E45C120C7DA32006292E8 /* UIImage+JCLaunchImage.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8E45C020C7DA32006292E8 /* UIImage+JCLaunchImage.m */; };
 		CE8E45C420C7DE7A006292E8 /* UINavigationBar+JCCustom.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8E45C320C7DE7A006292E8 /* UINavigationBar+JCCustom.m */; };
@@ -28,7 +35,6 @@
 		CEDB327320CE528D00C3B9BE /* TestObj.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDB327220CE528D00C3B9BE /* TestObj.m */; };
 		CEDB327620CE6D2000C3B9BE /* NSArray+JCLog.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDB327520CE6D2000C3B9BE /* NSArray+JCLog.m */; };
 		CEE3530720D3BAAF00281079 /* NSDictionary+JCLog.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE3530620D3BAAF00281079 /* NSDictionary+JCLog.m */; };
-		CEE3530A20D3BDDD00281079 /* NSString+JCTool.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE3530920D3BDDD00281079 /* NSString+JCTool.m */; };
 		CEE3530D20D3C2F000281079 /* UIImage+JCTool.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE3530C20D3C2F000281079 /* UIImage+JCTool.m */; };
 		CEE3531020D3C8C400281079 /* NSObject+JCLog.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE3530F20D3C8C400281079 /* NSObject+JCLog.m */; };
 		CEE370A520C9519E004BB99D /* NSData+JCCaculator.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE370A420C9519E004BB99D /* NSData+JCCaculator.m */; };
@@ -39,6 +45,21 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A2BA7F9020D7607300A3064F /* JCMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCMacro.h; sourceTree = "<group>"; };
+		A2BA7F9120D76DC500A3064F /* UILabel+JCFunctions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UILabel+JCFunctions.h"; sourceTree = "<group>"; };
+		A2BA7F9220D76DC500A3064F /* UILabel+JCFunctions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UILabel+JCFunctions.m"; sourceTree = "<group>"; };
+		A2BA7F9420D770B800A3064F /* UIDevice+JCDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+JCDeviceInfo.h"; sourceTree = "<group>"; };
+		A2BA7F9520D770B800A3064F /* UIDevice+JCDeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+JCDeviceInfo.m"; sourceTree = "<group>"; };
+		A2BA7F9620D770B800A3064F /* UIImage+JCCustom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+JCCustom.h"; sourceTree = "<group>"; };
+		A2BA7F9720D770B900A3064F /* UIImage+JCCustom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JCCustom.m"; sourceTree = "<group>"; };
+		A2BA7F9A20D776E000A3064F /* NSDate+JCDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+JCDate.h"; sourceTree = "<group>"; };
+		A2BA7F9B20D776E000A3064F /* NSDate+JCDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+JCDate.m"; sourceTree = "<group>"; };
+		A2BA7F9D20D7773D00A3064F /* NSObject+JCRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+JCRuntime.m"; sourceTree = "<group>"; };
+		A2BA7F9E20D7773D00A3064F /* NSObject+JCRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JCRuntime.h"; sourceTree = "<group>"; };
+		A2BA7FA020D7775500A3064F /* NSString+JCTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JCTools.h"; sourceTree = "<group>"; };
+		A2BA7FA120D7775500A3064F /* NSString+JCTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JCTools.m"; sourceTree = "<group>"; };
+		A2BA7FA320D7779400A3064F /* UIButton+JCCustom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+JCCustom.m"; sourceTree = "<group>"; };
+		A2BA7FA420D7779500A3064F /* UIButton+JCCustom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+JCCustom.h"; sourceTree = "<group>"; };
 		CE8E456E20C7C479006292E8 /* JCFundationHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCFundationHeader.h; sourceTree = "<group>"; };
 		CE8E456F20C7C491006292E8 /* JCUIkitHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCUIkitHeader.h; sourceTree = "<group>"; };
 		CE8E45BB20C7C72D006292E8 /* UIImageView+JCColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+JCColor.h"; sourceTree = "<group>"; };
@@ -78,8 +99,6 @@
 		CEDB327520CE6D2000C3B9BE /* NSArray+JCLog.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+JCLog.m"; sourceTree = "<group>"; };
 		CEE3530520D3BAAF00281079 /* NSDictionary+JCLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+JCLog.h"; sourceTree = "<group>"; };
 		CEE3530620D3BAAF00281079 /* NSDictionary+JCLog.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+JCLog.m"; sourceTree = "<group>"; };
-		CEE3530820D3BDDD00281079 /* NSString+JCTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+JCTool.h"; sourceTree = "<group>"; };
-		CEE3530920D3BDDD00281079 /* NSString+JCTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+JCTool.m"; sourceTree = "<group>"; };
 		CEE3530B20D3C2F000281079 /* UIImage+JCTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+JCTool.h"; sourceTree = "<group>"; };
 		CEE3530C20D3C2F000281079 /* UIImage+JCTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JCTool.m"; sourceTree = "<group>"; };
 		CEE3530E20D3C8C400281079 /* NSObject+JCLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+JCLog.h"; sourceTree = "<group>"; };
@@ -117,14 +136,22 @@
 			isa = PBXGroup;
 			children = (
 				CE8E456F20C7C491006292E8 /* JCUIkitHeader.h */,
+				A2BA7FA420D7779500A3064F /* UIButton+JCCustom.h */,
+				A2BA7FA320D7779400A3064F /* UIButton+JCCustom.m */,
 				CEE370AD20CA600E004BB99D /* UIDevice+JCCustom.h */,
 				CEE370AE20CA600E004BB99D /* UIDevice+JCCustom.m */,
+				A2BA7F9420D770B800A3064F /* UIDevice+JCDeviceInfo.h */,
+				A2BA7F9520D770B800A3064F /* UIDevice+JCDeviceInfo.m */,
 				CE8E45BB20C7C72D006292E8 /* UIImageView+JCColor.h */,
 				CE8E45BC20C7C72D006292E8 /* UIImageView+JCColor.m */,
 				CE8E45BF20C7DA32006292E8 /* UIImage+JCLaunchImage.h */,
 				CE8E45C020C7DA32006292E8 /* UIImage+JCLaunchImage.m */,
+				A2BA7F9620D770B800A3064F /* UIImage+JCCustom.h */,
+				A2BA7F9720D770B900A3064F /* UIImage+JCCustom.m */,
 				CEE3530B20D3C2F000281079 /* UIImage+JCTool.h */,
 				CEE3530C20D3C2F000281079 /* UIImage+JCTool.m */,
+				A2BA7F9120D76DC500A3064F /* UILabel+JCFunctions.h */,
+				A2BA7F9220D76DC500A3064F /* UILabel+JCFunctions.m */,
 				CE8E45C220C7DE7A006292E8 /* UINavigationBar+JCCustom.h */,
 				CE8E45C320C7DE7A006292E8 /* UINavigationBar+JCCustom.m */,
 				CE8E45C520C7E160006292E8 /* UIView+JCCustom.h */,
@@ -141,19 +168,24 @@
 			isa = PBXGroup;
 			children = (
 				CE8E456E20C7C479006292E8 /* JCFundationHeader.h */,
+				A2BA7F9020D7607300A3064F /* JCMacro.h */,
 				CEE3531120D3D1C700281079 /* JCSingleton.h */,
+				A2BA7F9E20D7773D00A3064F /* NSObject+JCRuntime.h */,
+				A2BA7F9D20D7773D00A3064F /* NSObject+JCRuntime.m */,
 				CEE3530E20D3C8C400281079 /* NSObject+JCLog.h */,
 				CEE3530F20D3C8C400281079 /* NSObject+JCLog.m */,
+				A2BA7F9A20D776E000A3064F /* NSDate+JCDate.h */,
+				A2BA7F9B20D776E000A3064F /* NSDate+JCDate.m */,
 				CEE370A320C9519E004BB99D /* NSData+JCCaculator.h */,
 				CEE370A420C9519E004BB99D /* NSData+JCCaculator.m */,
 				CEE370A620C951C5004BB99D /* NSString+JCCustom.h */,
 				CEE370A720C951C5004BB99D /* NSString+JCCustom.m */,
+				A2BA7FA020D7775500A3064F /* NSString+JCTools.h */,
+				A2BA7FA120D7775500A3064F /* NSString+JCTools.m */,
 				CEDB327420CE6D2000C3B9BE /* NSArray+JCLog.h */,
 				CEDB327520CE6D2000C3B9BE /* NSArray+JCLog.m */,
 				CEE3530520D3BAAF00281079 /* NSDictionary+JCLog.h */,
 				CEE3530620D3BAAF00281079 /* NSDictionary+JCLog.m */,
-				CEE3530820D3BDDD00281079 /* NSString+JCTool.h */,
-				CEE3530920D3BDDD00281079 /* NSString+JCTool.m */,
 			);
 			path = Fundation;
 			sourceTree = "<group>";
@@ -334,22 +366,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEE3530D20D3C2F000281079 /* UIImage+JCTool.m in Sources */,
+				A2BA7F9920D770B900A3064F /* UIImage+JCCustom.m in Sources */,
 				CEC5945720C692EA00CF6D4B /* ViewController.m in Sources */,
 				CEE370A820C951C5004BB99D /* NSString+JCCustom.m in Sources */,
 				CE8E45CD20C7E1E7006292E8 /* UITableViewCell+JCRoundCorner.m in Sources */,
 				CE8E45C420C7DE7A006292E8 /* UINavigationBar+JCCustom.m in Sources */,
 				CEC5946220C692EB00CF6D4B /* main.m in Sources */,
+				A2BA7FA220D7775500A3064F /* NSString+JCTools.m in Sources */,
 				CEE370A520C9519E004BB99D /* NSData+JCCaculator.m in Sources */,
 				CE8E45CA20C7E18A006292E8 /* UIColor+JCCaculator.m in Sources */,
+				A2BA7F9F20D7773D00A3064F /* NSObject+JCRuntime.m in Sources */,
+				A2BA7F9320D76DC500A3064F /* UILabel+JCFunctions.m in Sources */,
+				A2BA7FA520D7779500A3064F /* UIButton+JCCustom.m in Sources */,
 				CE8E45C120C7DA32006292E8 /* UIImage+JCLaunchImage.m in Sources */,
+				A2BA7F9C20D776E000A3064F /* NSDate+JCDate.m in Sources */,
 				CEDB327620CE6D2000C3B9BE /* NSArray+JCLog.m in Sources */,
 				CEC5945420C692EA00CF6D4B /* AppDelegate.m in Sources */,
-				CEE3530A20D3BDDD00281079 /* NSString+JCTool.m in Sources */,
 				CEE3530720D3BAAF00281079 /* NSDictionary+JCLog.m in Sources */,
 				CE8E45BD20C7C72D006292E8 /* UIImageView+JCColor.m in Sources */,
 				CEDB327320CE528D00C3B9BE /* TestObj.m in Sources */,
 				CEE3531020D3C8C400281079 /* NSObject+JCLog.m in Sources */,
 				CE8E45C720C7E160006292E8 /* UIView+JCCustom.m in Sources */,
+				A2BA7F9820D770B900A3064F /* UIDevice+JCDeviceInfo.m in Sources */,
 				CEE370AF20CA600E004BB99D /* UIDevice+JCCustom.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -519,7 +557,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7ZUYM8B89M;
+				DEVELOPMENT_TEAM = 9HEBC8D67B;
 				INFOPLIST_FILE = JC_Category/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -537,7 +575,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7ZUYM8B89M;
+				DEVELOPMENT_TEAM = 9HEBC8D67B;
 				INFOPLIST_FILE = JC_Category/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
