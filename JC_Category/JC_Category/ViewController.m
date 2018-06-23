@@ -22,14 +22,18 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    __weak typeof(self) weakSelf = self;
-    dispatch_async(dispatch_get_main_queue(), ^{
-        __strong typeof(weakSelf) strongSelf = weakSelf;
-        if (strongSelf) {
-            
-        }
-    });
-    
+
+    UIView *view = [[UIView alloc] initWithFrame:(CGRect){100,100,100,100}];
+    UIView *viewFornt = [[UIView alloc] initWithFrame:view.bounds];
+
+    view.backgroundColor = [UIColor blueColor];
+    viewFornt.backgroundColor = [UIColor redColor];
+
+    view.layer.cornerRadius = 20;
+    view.clipsToBounds = YES;
+
+    [self.view addSubview:view];
+    [view addSubview:viewFornt];
 }
 
 - (IBAction)Btn1_Event:(id)sender {
