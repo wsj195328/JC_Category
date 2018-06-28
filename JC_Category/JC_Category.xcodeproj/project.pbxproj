@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A23D4C6920E552AB008D1DEF /* JCBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A23D4C6820E552AB008D1DEF /* JCBaseModel.m */; };
 		A263144920E393F900BEF40B /* JCAlterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A263144820E393F900BEF40B /* JCAlterViewController.m */; };
 		A2BA7F9320D76DC500A3064F /* UILabel+JCFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = A2BA7F9220D76DC500A3064F /* UILabel+JCFunctions.m */; };
 		A2BA7F9820D770B900A3064F /* UIDevice+JCDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A2BA7F9520D770B800A3064F /* UIDevice+JCDeviceInfo.m */; };
@@ -46,6 +47,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A23D4C6720E552AB008D1DEF /* JCBaseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCBaseModel.h; sourceTree = "<group>"; };
+		A23D4C6820E552AB008D1DEF /* JCBaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCBaseModel.m; sourceTree = "<group>"; };
 		A263144720E393F900BEF40B /* JCAlterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCAlterViewController.h; sourceTree = "<group>"; };
 		A263144820E393F900BEF40B /* JCAlterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCAlterViewController.m; sourceTree = "<group>"; };
 		A2BA7F9020D7607300A3064F /* JCMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCMacro.h; sourceTree = "<group>"; };
@@ -135,6 +138,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A23D4C6620E5528A008D1DEF /* BaseClass */ = {
+			isa = PBXGroup;
+			children = (
+				A23D4C6720E552AB008D1DEF /* JCBaseModel.h */,
+				A23D4C6820E552AB008D1DEF /* JCBaseModel.m */,
+			);
+			path = BaseClass;
+			sourceTree = "<group>";
+		};
 		CE8E456820C7C359006292E8 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -236,11 +248,12 @@
 				CEC5945320C692EA00CF6D4B /* AppDelegate.m */,
 				CE8E45BE20C7CDBF006292E8 /* JCIgnoredTool.h */,
 				CE8E456920C7C374006292E8 /* Fundation */,
+				CE8E456820C7C359006292E8 /* UIKit */,
+				A23D4C6620E5528A008D1DEF /* BaseClass */,
 				CEC5945520C692EA00CF6D4B /* ViewController.h */,
 				CEC5945620C692EA00CF6D4B /* ViewController.m */,
 				CEDB327120CE528D00C3B9BE /* TestObj.h */,
 				CEDB327220CE528D00C3B9BE /* TestObj.m */,
-				CE8E456820C7C359006292E8 /* UIKit */,
 				CEC5945820C692EA00CF6D4B /* Main.storyboard */,
 				CEC5945B20C692EB00CF6D4B /* Assets.xcassets */,
 				CEC5945D20C692EB00CF6D4B /* LaunchScreen.storyboard */,
@@ -379,6 +392,7 @@
 				CEC5946220C692EB00CF6D4B /* main.m in Sources */,
 				A2BA7FA220D7775500A3064F /* NSString+JCTools.m in Sources */,
 				CEE370A520C9519E004BB99D /* NSData+JCCaculator.m in Sources */,
+				A23D4C6920E552AB008D1DEF /* JCBaseModel.m in Sources */,
 				CE8E45CA20C7E18A006292E8 /* UIColor+JCCaculator.m in Sources */,
 				A2BA7F9F20D7773D00A3064F /* NSObject+JCRuntime.m in Sources */,
 				A2BA7F9320D76DC500A3064F /* UILabel+JCFunctions.m in Sources */,

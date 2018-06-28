@@ -8,6 +8,8 @@
 
 #import "UIView+JCCustom.h"
 
+
+
 @implementation UIView (JCCustom)
 
 - (void)JC_MakeShadowWithOffset:(CGSize)offset
@@ -239,9 +241,20 @@
     self.layer.borderColor = [self colorWithRGBHex:hexNum].CGColor;
 }
 
+- (NSString *)borderHexRgb {
+    
+    return @"FFFFFF";
+}
+
+
 - (void)setMasksToBounds:(BOOL)bounds
 {
     self.layer.masksToBounds = bounds;
+}
+
+- (BOOL)masksToBounds {
+    
+    return  self.layer.masksToBounds;
 }
 
 - (UIColor *)colorWithRGBHex:(UInt32)hex

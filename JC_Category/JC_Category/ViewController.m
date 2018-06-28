@@ -10,6 +10,7 @@
 #import "JCUIkitHeader.h"
 #import "TestObj.h"
 #import "JCFundationHeader.h"
+#import "JCBaseModel.h"
 
 
 @interface ViewController ()
@@ -33,6 +34,15 @@
     [view addSubview:view1];
     
     [view JC_AddShadowOffset:CGSizeZero shadowRadius:8 color:UIColor.lightGrayColor opacity:0.8 cornerRadius:10];
+    
+//    JCBaseModel *model = [[JCBaseModel alloc] init];
+//    model.name = @"1q";
+//    model.dict = @{@"key":@1,@"v":@2};
+//    model.arr = @[@"123",@"asdc"];
+//    
+//    NSLog(@"%@",model);
+    
+    
     
  
 }
