@@ -23,17 +23,18 @@
     // Do any additional setup after loading the view, typically from a nib.
     
 
-    UIView *view = [[UIView alloc] initWithFrame:(CGRect){100,100,100,100}];
-    UIView *viewFornt = [[UIView alloc] initWithFrame:view.bounds];
-
-    view.backgroundColor = [UIColor blueColor];
-    viewFornt.backgroundColor = [UIColor redColor];
-
-    view.layer.cornerRadius = 20;
-    view.clipsToBounds = YES;
-
+    
+    UIView *view = [[UIView alloc] initWithFrame:(CGRect){100,100,200,200}];
+    view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:view];
-    [view addSubview:viewFornt];
+    
+     UIView *view1 = [[UIView alloc] initWithFrame:(CGRect){100,100,20,20}];
+    view1.backgroundColor = [UIColor blueColor];
+    [view addSubview:view1];
+    
+    [view JC_AddShadowOffset:CGSizeZero shadowRadius:8 color:UIColor.lightGrayColor opacity:0.8 cornerRadius:10];
+    
+ 
 }
 
 - (IBAction)Btn1_Event:(id)sender {
@@ -46,11 +47,8 @@
 
     NSLog(@"%@",temp_Array.firstObject);
 
-//    
-//    [UIDevice JC_JumpSystemItemString:@"General&path=ACCESSIBILITY" handle:^(BOOL isSuccess) {
-//
-//        NSLog(@"success %@",isSuccess?@"YES":@"NO");
-//    }];
+
+    
 }
 
 - (void)didReceiveMemoryWarning {

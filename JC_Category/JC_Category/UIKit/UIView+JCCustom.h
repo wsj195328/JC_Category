@@ -21,6 +21,13 @@ IB_DESIGNABLE
                           color:(UIColor *)color
                         opacity:(CGFloat)opacity;  // opacity (0 ~ 1)
 
+//MARK: 阴影圆角 (shadow and corner)
+- (instancetype)JC_AddShadowOffset:(CGSize)offset
+                      shadowRadius:(CGFloat)shadowRadius
+                             color:(UIColor *)color
+                           opacity:(CGFloat)opacity  // opacity (0 ~ 1)
+                      cornerRadius:(CGFloat)cornerRadius;
+
 
 //显示信息 <show>
 + (void)JC_ShowMessage:(NSString *)message;

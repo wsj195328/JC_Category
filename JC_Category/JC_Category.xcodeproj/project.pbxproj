@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A263144920E393F900BEF40B /* JCAlterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A263144820E393F900BEF40B /* JCAlterViewController.m */; };
 		A2BA7F9320D76DC500A3064F /* UILabel+JCFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = A2BA7F9220D76DC500A3064F /* UILabel+JCFunctions.m */; };
 		A2BA7F9820D770B900A3064F /* UIDevice+JCDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A2BA7F9520D770B800A3064F /* UIDevice+JCDeviceInfo.m */; };
 		A2BA7F9920D770B900A3064F /* UIImage+JCCustom.m in Sources */ = {isa = PBXBuildFile; fileRef = A2BA7F9720D770B900A3064F /* UIImage+JCCustom.m */; };
@@ -45,6 +46,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A263144720E393F900BEF40B /* JCAlterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCAlterViewController.h; sourceTree = "<group>"; };
+		A263144820E393F900BEF40B /* JCAlterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCAlterViewController.m; sourceTree = "<group>"; };
 		A2BA7F9020D7607300A3064F /* JCMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCMacro.h; sourceTree = "<group>"; };
 		A2BA7F9120D76DC500A3064F /* UILabel+JCFunctions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UILabel+JCFunctions.h"; sourceTree = "<group>"; };
 		A2BA7F9220D76DC500A3064F /* UILabel+JCFunctions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UILabel+JCFunctions.m"; sourceTree = "<group>"; };
@@ -136,6 +139,8 @@
 			isa = PBXGroup;
 			children = (
 				CE8E456F20C7C491006292E8 /* JCUIkitHeader.h */,
+				A263144720E393F900BEF40B /* JCAlterViewController.h */,
+				A263144820E393F900BEF40B /* JCAlterViewController.m */,
 				A2BA7FA420D7779500A3064F /* UIButton+JCCustom.h */,
 				A2BA7FA320D7779400A3064F /* UIButton+JCCustom.m */,
 				CEE370AD20CA600E004BB99D /* UIDevice+JCCustom.h */,
@@ -386,6 +391,7 @@
 				CE8E45BD20C7C72D006292E8 /* UIImageView+JCColor.m in Sources */,
 				CEDB327320CE528D00C3B9BE /* TestObj.m in Sources */,
 				CEE3531020D3C8C400281079 /* NSObject+JCLog.m in Sources */,
+				A263144920E393F900BEF40B /* JCAlterViewController.m in Sources */,
 				CE8E45C720C7E160006292E8 /* UIView+JCCustom.m in Sources */,
 				A2BA7F9820D770B900A3064F /* UIDevice+JCDeviceInfo.m in Sources */,
 				CEE370AF20CA600E004BB99D /* UIDevice+JCCustom.m in Sources */,

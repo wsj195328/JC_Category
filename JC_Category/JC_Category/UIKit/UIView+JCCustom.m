@@ -15,17 +15,53 @@
                           color:(UIColor *)color
                         opacity:(CGFloat)opacity {
 
-    CGMutablePathRef path = CGPathCreateMutable();
-    CGPathAddRect(path, NULL, self.bounds);
-    self.layer.shadowPath = path;
-    CGPathCloseSubpath(path);
-    CGPathRelease(path);
-
     self.layer.shadowColor = color.CGColor;
     self.layer.shadowOffset = offset;
     self.layer.shadowRadius = radius;
     self.layer.shadowOpacity = opacity;
     self.clipsToBounds = NO;
+}
+
+- (instancetype)JC_AddShadowOffset:(CGSize)offset shadowRadius:(CGFloat)shadowRadius color:(UIColor *)color opacity:(CGFloat)opacity cornerRadius:(CGFloat)cornerRadius {
+    
+    if (self.superview == nil) {
+        return self;
+    }
+    //masksToBounds 会切掉影响，所以搞一个layer放在底层
+    //MARK: 自身圆角
+    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:self.bounds cornerRadius:cornerRadius];
+    CAShapeLayer *layer = [CAShapeLayer layer];
+    layer.path = path.CGPath;
+    self.layer.mask = layer;
+    
+    //MARK: 阴影layer
+    CAShapeLayer *shadowLayer = [CAShapeLayer layer];
+    //路径
+    CGMutablePathRef pathRef = CGPathCreateMutable();
+    CGRect bound = CGRectInset(self.frame, 1, 1); //缩进1,避免重叠
+
+    CGPathMoveToPoint(pathRef, nil, CGRectGetMinX(bound), CGRectGetMidY(bound));
+    CGPathAddArcToPoint(pathRef, nil, CGRectGetMinX(bound), CGRectGetMinY(bound), CGRectGetMidX(bound), CGRectGetMinY(bound), cornerRadius);
+    CGPathAddArcToPoint(pathRef, nil, CGRectGetMaxX(bound), CGRectGetMinY(bound), CGRectGetMaxX(bound), CGRectGetMidY(bound), cornerRadius);
+    CGPathAddArcToPoint(pathRef, nil, CGRectGetMaxX(bound), CGRectGetMaxY(bound), CGRectGetMidX(bound), CGRectGetMaxY(bound), cornerRadius);
+    CGPathAddArcToPoint(pathRef, nil, CGRectGetMinX(bound), CGRectGetMaxY(bound), CGRectGetMinX(bound), CGRectGetMidY(bound), cornerRadius);
+    CGPathAddLineToPoint(pathRef, nil, CGRectGetMinX(bound), CGRectGetMidY(bound));
+
+    shadowLayer.path = pathRef;
+    CFRelease(pathRef);
+    
+    //阴影
+    shadowLayer.shadowColor = color.CGColor;
+    shadowLayer.shadowOffset = offset;
+    shadowLayer.shadowRadius = shadowRadius;
+    shadowLayer.shadowOpacity = opacity;
+    shadowLayer.shouldRasterize = YES;
+    shadowLayer.rasterizationScale = [UIScreen mainScreen].scale;
+    self.clipsToBounds = NO;
+    
+    [self.superview.layer insertSublayer:shadowLayer below:self.layer];
+    
+    return self;
 }
 
 + (void)JC_ShowMessage:(NSString *)message {
