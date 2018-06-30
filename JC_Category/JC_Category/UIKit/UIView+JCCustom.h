@@ -28,6 +28,9 @@ IB_DESIGNABLE
                            opacity:(CGFloat)opacity  // opacity (0 ~ 1)
                       cornerRadius:(CGFloat)cornerRadius;
 
+// MARK:贝塞尔曲线切圆角 (clip RadiuCorner)
+- (instancetype)JC_ClipCornerRadius:(CGFloat)value;
+
 
 //显示信息 <show>
 + (void)JC_ShowMessage:(NSString *)message;

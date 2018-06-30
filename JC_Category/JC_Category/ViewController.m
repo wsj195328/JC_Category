@@ -42,8 +42,7 @@
 //    
 //    NSLog(@"%@",model);
     
-    
-    
+ 
  
 }
 
@@ -57,7 +56,16 @@
 
     NSLog(@"%@",temp_Array.firstObject);
 
-
+    NSURL *url = [NSURL URLWithString:@"btw://"];
+    
+    if ([[UIApplication sharedApplication] canOpenURL:url]) {
+        
+        [[UIApplication sharedApplication] openURL:url];
+        
+    }else{
+        NSLog(@"没有安装应用");
+    }
+    
     
 }
 

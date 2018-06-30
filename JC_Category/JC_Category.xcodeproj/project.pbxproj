@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A23D4C6920E552AB008D1DEF /* JCBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A23D4C6820E552AB008D1DEF /* JCBaseModel.m */; };
 		A263144920E393F900BEF40B /* JCAlterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A263144820E393F900BEF40B /* JCAlterViewController.m */; };
+		A28ECB8E20E7FCB600063E58 /* UIView+JCCustom.m in Sources */ = {isa = PBXBuildFile; fileRef = A28ECB8D20E7FCB600063E58 /* UIView+JCCustom.m */; };
 		A2BA7F9320D76DC500A3064F /* UILabel+JCFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = A2BA7F9220D76DC500A3064F /* UILabel+JCFunctions.m */; };
 		A2BA7F9820D770B900A3064F /* UIDevice+JCDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A2BA7F9520D770B800A3064F /* UIDevice+JCDeviceInfo.m */; };
 		A2BA7F9920D770B900A3064F /* UIImage+JCCustom.m in Sources */ = {isa = PBXBuildFile; fileRef = A2BA7F9720D770B900A3064F /* UIImage+JCCustom.m */; };
@@ -19,7 +20,6 @@
 		CE8E45BD20C7C72D006292E8 /* UIImageView+JCColor.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8E45BC20C7C72D006292E8 /* UIImageView+JCColor.m */; };
 		CE8E45C120C7DA32006292E8 /* UIImage+JCLaunchImage.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8E45C020C7DA32006292E8 /* UIImage+JCLaunchImage.m */; };
 		CE8E45C420C7DE7A006292E8 /* UINavigationBar+JCCustom.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8E45C320C7DE7A006292E8 /* UINavigationBar+JCCustom.m */; };
-		CE8E45C720C7E160006292E8 /* UIView+JCCustom.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8E45C620C7E160006292E8 /* UIView+JCCustom.m */; };
 		CE8E45CA20C7E18A006292E8 /* UIColor+JCCaculator.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8E45C920C7E18A006292E8 /* UIColor+JCCaculator.m */; };
 		CE8E45CD20C7E1E7006292E8 /* UITableViewCell+JCRoundCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8E45CC20C7E1E7006292E8 /* UITableViewCell+JCRoundCorner.m */; };
 		CEC5945420C692EA00CF6D4B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC5945320C692EA00CF6D4B /* AppDelegate.m */; };
@@ -51,6 +51,7 @@
 		A23D4C6820E552AB008D1DEF /* JCBaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCBaseModel.m; sourceTree = "<group>"; };
 		A263144720E393F900BEF40B /* JCAlterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCAlterViewController.h; sourceTree = "<group>"; };
 		A263144820E393F900BEF40B /* JCAlterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCAlterViewController.m; sourceTree = "<group>"; };
+		A28ECB8D20E7FCB600063E58 /* UIView+JCCustom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+JCCustom.m"; sourceTree = "<group>"; };
 		A2BA7F9020D7607300A3064F /* JCMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCMacro.h; sourceTree = "<group>"; };
 		A2BA7F9120D76DC500A3064F /* UILabel+JCFunctions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UILabel+JCFunctions.h"; sourceTree = "<group>"; };
 		A2BA7F9220D76DC500A3064F /* UILabel+JCFunctions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UILabel+JCFunctions.m"; sourceTree = "<group>"; };
@@ -76,7 +77,6 @@
 		CE8E45C220C7DE7A006292E8 /* UINavigationBar+JCCustom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+JCCustom.h"; sourceTree = "<group>"; };
 		CE8E45C320C7DE7A006292E8 /* UINavigationBar+JCCustom.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+JCCustom.m"; sourceTree = "<group>"; };
 		CE8E45C520C7E160006292E8 /* UIView+JCCustom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+JCCustom.h"; sourceTree = "<group>"; };
-		CE8E45C620C7E160006292E8 /* UIView+JCCustom.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+JCCustom.m"; sourceTree = "<group>"; };
 		CE8E45C820C7E18A006292E8 /* UIColor+JCCaculator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+JCCaculator.h"; sourceTree = "<group>"; };
 		CE8E45C920C7E18A006292E8 /* UIColor+JCCaculator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+JCCaculator.m"; sourceTree = "<group>"; };
 		CE8E45CB20C7E1E7006292E8 /* UITableViewCell+JCRoundCorner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+JCRoundCorner.h"; sourceTree = "<group>"; };
@@ -172,7 +172,7 @@
 				CE8E45C220C7DE7A006292E8 /* UINavigationBar+JCCustom.h */,
 				CE8E45C320C7DE7A006292E8 /* UINavigationBar+JCCustom.m */,
 				CE8E45C520C7E160006292E8 /* UIView+JCCustom.h */,
-				CE8E45C620C7E160006292E8 /* UIView+JCCustom.m */,
+				A28ECB8D20E7FCB600063E58 /* UIView+JCCustom.m */,
 				CE8E45C820C7E18A006292E8 /* UIColor+JCCaculator.h */,
 				CE8E45C920C7E18A006292E8 /* UIColor+JCCaculator.m */,
 				CE8E45CB20C7E1E7006292E8 /* UITableViewCell+JCRoundCorner.h */,
@@ -383,6 +383,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A28ECB8E20E7FCB600063E58 /* UIView+JCCustom.m in Sources */,
 				CEE3530D20D3C2F000281079 /* UIImage+JCTool.m in Sources */,
 				A2BA7F9920D770B900A3064F /* UIImage+JCCustom.m in Sources */,
 				CEC5945720C692EA00CF6D4B /* ViewController.m in Sources */,
@@ -406,7 +407,6 @@
 				CEDB327320CE528D00C3B9BE /* TestObj.m in Sources */,
 				CEE3531020D3C8C400281079 /* NSObject+JCLog.m in Sources */,
 				A263144920E393F900BEF40B /* JCAlterViewController.m in Sources */,
-				CE8E45C720C7E160006292E8 /* UIView+JCCustom.m in Sources */,
 				A2BA7F9820D770B900A3064F /* UIDevice+JCDeviceInfo.m in Sources */,
 				CEE370AF20CA600E004BB99D /* UIDevice+JCCustom.m in Sources */,
 			);

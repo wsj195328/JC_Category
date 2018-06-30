@@ -48,5 +48,22 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    
+    NSLog(@"其他app all %@",url.absoluteString);
+     NSLog(@"其他app跳转后传的参数 %@",url.host);
+    
+    return YES;
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    
+    NSLog(@"sourceApplication =%@ \n url =%@  annotation =%@",sourceApplication,url,annotation);
+    
+    
+    return YES;
+    
+    
+}
 
 @end

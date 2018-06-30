@@ -16,7 +16,4 @@
 // MARK:从颜色中获取RGB的数组 (Get RGB value array from UIColor)
 + (NSInteger *)JC_RGBWFromUIColor:(UIColor *)color;
 
-// MARK:贝塞尔曲线切圆角 (clip RadiuCorner)
-- (instancetype)JC_ClipCornerRadius:(CGFloat)value;
-
 @end

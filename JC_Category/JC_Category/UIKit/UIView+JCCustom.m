@@ -7,8 +7,13 @@
 //
 
 #import "UIView+JCCustom.h"
+#import <objc/runtime.h>
 
+@interface UIView  ()
 
+@property (nonatomic, strong) UIView *roundLayer;
+
+@end
 
 @implementation UIView (JCCustom)
 
@@ -25,6 +30,8 @@
 }
 
 - (instancetype)JC_AddShadowOffset:(CGSize)offset shadowRadius:(CGFloat)shadowRadius color:(UIColor *)color opacity:(CGFloat)opacity cornerRadius:(CGFloat)cornerRadius {
+    
+    
     
     if (self.superview == nil) {
         return self;
@@ -60,11 +67,28 @@
     shadowLayer.shouldRasterize = YES;
     shadowLayer.rasterizationScale = [UIScreen mainScreen].scale;
     self.clipsToBounds = NO;
-    
-    [self.superview.layer insertSublayer:shadowLayer below:self.layer];
-    
+    CALayer *lay = objc_getAssociatedObject(self, @"roundLayer");
+    //避免重复添加图层
+    if (lay == nil) {
+        
+        [self.superview.layer insertSublayer:shadowLayer below:self.layer];
+        objc_setAssociatedObject(self, @"roundLayer", shadowLayer, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
     return self;
 }
+
+
+- (instancetype)JC_ClipCornerRadius:(CGFloat)value {
+    
+    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:self.bounds
+                                                    cornerRadius:value];
+    CAShapeLayer *layer = [CAShapeLayer layer];
+    layer.path = path.CGPath;
+    self.layer.mask = layer;
+    return self;
+}
+
+
 
 + (void)JC_ShowMessage:(NSString *)message {
 

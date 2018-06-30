@@ -74,16 +74,6 @@
     return components;
 }
 
-- (instancetype)JC_ClipCornerRadius:(CGFloat)value {
-
-    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:self.bounds
-                                                    cornerRadius:value];
-    CAShapeLayer *layer = [CAShapeLayer layer];
-    layer.path = path.CGPath;
-    self.layer.mask = layer;
-    return self;
-}
-
 #pragma clang diagnostic pop
 
 @end
