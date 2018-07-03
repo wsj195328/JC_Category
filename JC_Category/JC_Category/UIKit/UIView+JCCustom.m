@@ -31,11 +31,13 @@
 
 - (instancetype)JC_AddShadowOffset:(CGSize)offset shadowRadius:(CGFloat)shadowRadius color:(UIColor *)color opacity:(CGFloat)opacity cornerRadius:(CGFloat)cornerRadius {
     
-    
-    
     if (self.superview == nil) {
         return self;
     }
+    
+    //背景
+    self.backgroundColor = UIColor.whiteColor;
+    
     //masksToBounds 会切掉影响，所以搞一个layer放在底层
     //MARK: 自身圆角
     UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:self.bounds cornerRadius:cornerRadius];
@@ -48,7 +50,6 @@
     //路径
     CGMutablePathRef pathRef = CGPathCreateMutable();
     CGRect bound = CGRectInset(self.frame, 1, 1); //缩进1,避免重叠
-
     CGPathMoveToPoint(pathRef, nil, CGRectGetMinX(bound), CGRectGetMidY(bound));
     CGPathAddArcToPoint(pathRef, nil, CGRectGetMinX(bound), CGRectGetMinY(bound), CGRectGetMidX(bound), CGRectGetMinY(bound), cornerRadius);
     CGPathAddArcToPoint(pathRef, nil, CGRectGetMaxX(bound), CGRectGetMinY(bound), CGRectGetMaxX(bound), CGRectGetMidY(bound), cornerRadius);
@@ -72,8 +73,15 @@
     if (lay == nil) {
         
         [self.superview.layer insertSublayer:shadowLayer below:self.layer];
-        objc_setAssociatedObject(self, @"roundLayer", shadowLayer, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
+    else {
+        //存在的情况
+        if ([self.superview.layer.sublayers containsObject:lay]) {
+            [self.superview.layer replaceSublayer:lay with:shadowLayer];
+        }
+    }
+    objc_setAssociatedObject(self, @"roundLayer", shadowLayer, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    
     return self;
 }
 

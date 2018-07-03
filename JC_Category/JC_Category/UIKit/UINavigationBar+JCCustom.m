@@ -14,6 +14,8 @@
 
     [[UINavigationBar appearance] setBackgroundImage:[UIImage new] forBarMetrics:(UIBarMetricsDefault)];
     [[UINavigationBar appearance] setShadowImage:[UIImage new]];
+    //透明会导致之后设置导航栏颜色无效
+    [[UINavigationBar appearance] setTranslucent:NO];
 }
 
 @end

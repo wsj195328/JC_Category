@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		A23D4C6920E552AB008D1DEF /* JCBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A23D4C6820E552AB008D1DEF /* JCBaseModel.m */; };
 		A263144920E393F900BEF40B /* JCAlterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A263144820E393F900BEF40B /* JCAlterViewController.m */; };
-		A28ECB8E20E7FCB600063E58 /* UIView+JCCustom.m in Sources */ = {isa = PBXBuildFile; fileRef = A28ECB8D20E7FCB600063E58 /* UIView+JCCustom.m */; };
+		A26C057420EBB2F1008EA4C5 /* BTWGetPictureTool.m in Sources */ = {isa = PBXBuildFile; fileRef = A26C057320EBB2F1008EA4C5 /* BTWGetPictureTool.m */; };
+		A26C057620EBB343008EA4C5 /* UIView+JCCustom.m in Sources */ = {isa = PBXBuildFile; fileRef = A26C057520EBB343008EA4C5 /* UIView+JCCustom.m */; };
 		A2BA7F9320D76DC500A3064F /* UILabel+JCFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = A2BA7F9220D76DC500A3064F /* UILabel+JCFunctions.m */; };
 		A2BA7F9820D770B900A3064F /* UIDevice+JCDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A2BA7F9520D770B800A3064F /* UIDevice+JCDeviceInfo.m */; };
 		A2BA7F9920D770B900A3064F /* UIImage+JCCustom.m in Sources */ = {isa = PBXBuildFile; fileRef = A2BA7F9720D770B900A3064F /* UIImage+JCCustom.m */; };
@@ -51,7 +52,9 @@
 		A23D4C6820E552AB008D1DEF /* JCBaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCBaseModel.m; sourceTree = "<group>"; };
 		A263144720E393F900BEF40B /* JCAlterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCAlterViewController.h; sourceTree = "<group>"; };
 		A263144820E393F900BEF40B /* JCAlterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCAlterViewController.m; sourceTree = "<group>"; };
-		A28ECB8D20E7FCB600063E58 /* UIView+JCCustom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+JCCustom.m"; sourceTree = "<group>"; };
+		A26C057220EBB2F1008EA4C5 /* BTWGetPictureTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTWGetPictureTool.h; sourceTree = "<group>"; };
+		A26C057320EBB2F1008EA4C5 /* BTWGetPictureTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTWGetPictureTool.m; sourceTree = "<group>"; };
+		A26C057520EBB343008EA4C5 /* UIView+JCCustom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+JCCustom.m"; sourceTree = "<group>"; };
 		A2BA7F9020D7607300A3064F /* JCMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCMacro.h; sourceTree = "<group>"; };
 		A2BA7F9120D76DC500A3064F /* UILabel+JCFunctions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UILabel+JCFunctions.h"; sourceTree = "<group>"; };
 		A2BA7F9220D76DC500A3064F /* UILabel+JCFunctions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UILabel+JCFunctions.m"; sourceTree = "<group>"; };
@@ -147,6 +150,15 @@
 			path = BaseClass;
 			sourceTree = "<group>";
 		};
+		A26C057120EBB2D7008EA4C5 /* Danli */ = {
+			isa = PBXGroup;
+			children = (
+				A26C057220EBB2F1008EA4C5 /* BTWGetPictureTool.h */,
+				A26C057320EBB2F1008EA4C5 /* BTWGetPictureTool.m */,
+			);
+			path = Danli;
+			sourceTree = "<group>";
+		};
 		CE8E456820C7C359006292E8 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,7 +184,7 @@
 				CE8E45C220C7DE7A006292E8 /* UINavigationBar+JCCustom.h */,
 				CE8E45C320C7DE7A006292E8 /* UINavigationBar+JCCustom.m */,
 				CE8E45C520C7E160006292E8 /* UIView+JCCustom.h */,
-				A28ECB8D20E7FCB600063E58 /* UIView+JCCustom.m */,
+				A26C057520EBB343008EA4C5 /* UIView+JCCustom.m */,
 				CE8E45C820C7E18A006292E8 /* UIColor+JCCaculator.h */,
 				CE8E45C920C7E18A006292E8 /* UIColor+JCCaculator.m */,
 				CE8E45CB20C7E1E7006292E8 /* UITableViewCell+JCRoundCorner.h */,
@@ -250,6 +262,7 @@
 				CE8E456920C7C374006292E8 /* Fundation */,
 				CE8E456820C7C359006292E8 /* UIKit */,
 				A23D4C6620E5528A008D1DEF /* BaseClass */,
+				A26C057120EBB2D7008EA4C5 /* Danli */,
 				CEC5945520C692EA00CF6D4B /* ViewController.h */,
 				CEC5945620C692EA00CF6D4B /* ViewController.m */,
 				CEDB327120CE528D00C3B9BE /* TestObj.h */,
@@ -383,13 +396,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A28ECB8E20E7FCB600063E58 /* UIView+JCCustom.m in Sources */,
+				A26C057620EBB343008EA4C5 /* UIView+JCCustom.m in Sources */,
 				CEE3530D20D3C2F000281079 /* UIImage+JCTool.m in Sources */,
 				A2BA7F9920D770B900A3064F /* UIImage+JCCustom.m in Sources */,
 				CEC5945720C692EA00CF6D4B /* ViewController.m in Sources */,
 				CEE370A820C951C5004BB99D /* NSString+JCCustom.m in Sources */,
 				CE8E45CD20C7E1E7006292E8 /* UITableViewCell+JCRoundCorner.m in Sources */,
 				CE8E45C420C7DE7A006292E8 /* UINavigationBar+JCCustom.m in Sources */,
+				A26C057420EBB2F1008EA4C5 /* BTWGetPictureTool.m in Sources */,
 				CEC5946220C692EB00CF6D4B /* main.m in Sources */,
 				A2BA7FA220D7775500A3064F /* NSString+JCTools.m in Sources */,
 				CEE370A520C9519E004BB99D /* NSData+JCCaculator.m in Sources */,
