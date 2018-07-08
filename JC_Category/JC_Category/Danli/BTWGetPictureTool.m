@@ -8,6 +8,7 @@
 
 #import "BTWGetPictureTool.h"
 #import <MobileCoreServices/MobileCoreServices.h>
+#import "JCAlterViewController.h"
 
 @interface BTWGetPictureTool ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 

@@ -30,22 +30,27 @@ NSString const *UIButton_badgeValueKey = @"UIButton_badgeValueKey";
 @dynamic badgePadding, badgeMinSize, badgeOriginX, badgeOriginY;
 @dynamic shouldHideBadgeAtZero, shouldAnimateBadge;
 
-+(instancetype)wh_buttonWithTitle:(NSString *)title backColor:(UIColor *)backColor backImageName:(NSString *)backImageName titleColor:(UIColor *)color fontSize:(int)fontSize frame:(CGRect)frame cornerRadius:(CGFloat)cornerRadius {
++(instancetype)JC_buttonTitle:(NSString *)title
+                         font:(NSInteger)fontsize
+                   titleColor:(UIColor *)titleColor
+                    backColor:(UIColor *)backColor
+                        frame:(CGRect)rect
+                       corner:(CGFloat)cornerRadius {
     
-    UIButton *button = [UIButton new];
-    [button setTitle:title forState:UIControlStateNormal];
-    [button setBackgroundColor:backColor];
-    [button setBackgroundImage:[UIImage imageNamed:backImageName] forState:UIControlStateNormal];
-    [button setTitleColor:color forState:UIControlStateNormal];
-    button.titleLabel.font = [UIFont systemFontOfSize:fontSize];
-    [button sizeToFit];
-    button.frame=frame;
-    button.layer.cornerRadius=cornerRadius;
-    button.clipsToBounds=YES;
-    return button;
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
+    [btn setTitle:title forState:UIControlStateNormal];
+    [btn setTitleColor:titleColor forState:UIControlStateNormal];
+    [btn setBackgroundColor:backColor];
+    btn.titleLabel.font = [UIFont systemFontOfSize:fontsize];
+    [btn sizeToFit];
+    btn.contentMode = UIViewContentModeCenter;
+    btn.frame = rect;
+    if (cornerRadius != 0) {
+        btn.layer.cornerRadius = cornerRadius;
+        btn.clipsToBounds = YES;
+    }
+    return btn;
 }
-
-
 
 - (void)startTime:(NSInteger)timeout waitBlock:(void(^)(NSInteger remainTime))waitBlock finishBlock:(void(^)(void))finishBlock;
 {

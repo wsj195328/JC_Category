@@ -12,7 +12,12 @@ typedef void (^TouchedButtonBlock)(void);
 @interface UIButton (JCCustom)
 
 //快速创建按钮
-+(instancetype)wh_buttonWithTitle:(NSString *)title backColor:(UIColor *)backColor backImageName:(NSString *)backImageName titleColor:(UIColor *)color fontSize:(int)fontSize frame:(CGRect)frame cornerRadius:(CGFloat)cornerRadius;
++(instancetype)JC_buttonTitle:(NSString *)title
+                         font:(NSInteger)fontsize
+                   titleColor:(UIColor *)titleColor
+                    backColor:(UIColor *)backColor
+                        frame:(CGRect)rect
+                       corner:(CGFloat)cornerRadius;
 
 //多久之后开始执行
 - (void)startTime:(NSInteger)timeout waitBlock:(void(^)(NSInteger remainTime))waitBlock finishBlock:(void(^)(void))finishBlock;
