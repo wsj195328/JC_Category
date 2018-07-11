@@ -9,6 +9,8 @@
 #import "UIView+JCCustom.h"
 #import <objc/runtime.h>
 
+#define SCALE_WIDTH [UIScreen mainScreen].bounds.size.width/375
+
 @interface UIView  ()
 
 @property (nonatomic, strong) UIView *roundLayer;
@@ -50,11 +52,12 @@
     //路径
     CGMutablePathRef pathRef = CGPathCreateMutable();
     CGRect bound = CGRectInset(self.frame, 1, 1); //缩进1,避免重叠
+    CGFloat scale = SCALE_WIDTH * 1.12;
     CGPathMoveToPoint(pathRef, nil, CGRectGetMinX(bound), CGRectGetMidY(bound));
-    CGPathAddArcToPoint(pathRef, nil, CGRectGetMinX(bound), CGRectGetMinY(bound), CGRectGetMidX(bound), CGRectGetMinY(bound), cornerRadius);
-    CGPathAddArcToPoint(pathRef, nil, CGRectGetMaxX(bound), CGRectGetMinY(bound), CGRectGetMaxX(bound), CGRectGetMidY(bound), cornerRadius);
-    CGPathAddArcToPoint(pathRef, nil, CGRectGetMaxX(bound), CGRectGetMaxY(bound), CGRectGetMidX(bound), CGRectGetMaxY(bound), cornerRadius);
-    CGPathAddArcToPoint(pathRef, nil, CGRectGetMinX(bound), CGRectGetMaxY(bound), CGRectGetMinX(bound), CGRectGetMidY(bound), cornerRadius);
+    CGPathAddArcToPoint(pathRef, nil, CGRectGetMinX(bound), CGRectGetMinY(bound), CGRectGetMidX(bound), CGRectGetMinY(bound), cornerRadius/scale);
+    CGPathAddArcToPoint(pathRef, nil, CGRectGetMaxX(bound), CGRectGetMinY(bound), CGRectGetMaxX(bound), CGRectGetMidY(bound), cornerRadius/scale);
+    CGPathAddArcToPoint(pathRef, nil, CGRectGetMaxX(bound), CGRectGetMaxY(bound), CGRectGetMidX(bound), CGRectGetMaxY(bound), cornerRadius/scale);
+    CGPathAddArcToPoint(pathRef, nil, CGRectGetMinX(bound), CGRectGetMaxY(bound), CGRectGetMinX(bound), CGRectGetMidY(bound), cornerRadius/scale);
     CGPathAddLineToPoint(pathRef, nil, CGRectGetMinX(bound), CGRectGetMidY(bound));
 
     shadowLayer.path = pathRef;
@@ -67,7 +70,7 @@
     shadowLayer.shadowOpacity = opacity;
     shadowLayer.shouldRasterize = YES;
     shadowLayer.rasterizationScale = [UIScreen mainScreen].scale;
-    self.clipsToBounds = NO;
+//    self.clipsToBounds = YES;
     CALayer *lay = objc_getAssociatedObject(self, @"roundLayer");
     //避免重复添加图层
     if (lay == nil) {
@@ -82,6 +85,28 @@
     }
     objc_setAssociatedObject(self, @"roundLayer", shadowLayer, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
+    return self;
+}
+
+//MARK: 普通view阴影圆角 (shadow and corner)
+- (instancetype)JC_AddViewShadowOffset:(CGSize)offset
+                          shadowRadius:(CGFloat)shadowRadius
+                                 color:(UIColor *)color
+                               opacity:(CGFloat)opacity  // opacity (0 ~ 1)
+                          cornerRadius:(CGFloat)cornerRadius {
+
+    //自身圆角
+    self.cornerRadius = cornerRadius;
+    self.layer.masksToBounds = NO;
+    
+    //阴影
+    self.layer.shadowColor = color.CGColor;
+    self.layer.shadowOffset = offset;
+    self.layer.shadowRadius = shadowRadius;
+    self.layer.shadowOpacity = opacity;
+    self.layer.shouldRasterize = YES;
+    self.layer.rasterizationScale = [UIScreen mainScreen].scale;
+
     return self;
 }
 

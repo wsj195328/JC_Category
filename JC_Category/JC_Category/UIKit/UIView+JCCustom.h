@@ -21,12 +21,20 @@ IB_DESIGNABLE
                           color:(UIColor *)color
                         opacity:(CGFloat)opacity;  // opacity (0 ~ 1)
 
-//MARK: 阴影圆角 (shadow and corner)
+//MARK: Cell阴影圆角 (shadow and corner)
 - (instancetype)JC_AddShadowOffset:(CGSize)offset
                       shadowRadius:(CGFloat)shadowRadius
                              color:(UIColor *)color
                            opacity:(CGFloat)opacity  // opacity (0 ~ 1)
                       cornerRadius:(CGFloat)cornerRadius;
+
+//MARK: 普通view阴影圆角 (shadow and corner)
+- (instancetype)JC_AddViewShadowOffset:(CGSize)offset
+                          shadowRadius:(CGFloat)shadowRadius
+                                 color:(UIColor *)color
+                               opacity:(CGFloat)opacity  // opacity (0 ~ 1)
+                          cornerRadius:(CGFloat)cornerRadius;
+
 
 // MARK:贝塞尔曲线切圆角 (clip RadiuCorner)
 - (instancetype)JC_ClipCornerRadius:(CGFloat)value;
