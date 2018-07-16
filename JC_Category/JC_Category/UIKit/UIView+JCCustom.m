@@ -110,6 +110,40 @@
     return self;
 }
 
+//MARK: 添加部分边框 (part border)
++(void)JC_AddViewBorder:(UIView *)view
+                  color:(UIColor *)color
+                 border:(float)border
+                   type:(UIViewBorderLineType)borderLineType {
+    
+    CALayer *lineLayer = [CALayer layer];
+    lineLayer.backgroundColor = color.CGColor;
+    switch (borderLineType) {
+        case UIViewBorderLineTypeTop:{
+            lineLayer.frame = CGRectMake(0, 0, view.frame.size.width, border);
+            break;
+        }
+        case UIViewBorderLineTypeRight:{
+            lineLayer.frame = CGRectMake(view.frame.size.width, 0, border, view.frame.size.height);
+            break;
+        }
+        case UIViewBorderLineTypeBottom:{
+            lineLayer.frame = CGRectMake(0, view.frame.size.height, view.frame.size.width,border);
+            break;
+        }
+        case UIViewBorderLineTypeLeft:{
+            lineLayer.frame = CGRectMake(0, 0, border, view.frame.size.height);
+            break;
+        }
+        //默认上边缘
+        default:{
+            lineLayer.frame = CGRectMake(0, 0, view.frame.size.width, border);
+            break;
+        }
+    }
+    
+    [view.layer addSublayer:lineLayer];
+}
 
 - (instancetype)JC_ClipCornerRadius:(CGFloat)value {
     
@@ -127,18 +161,19 @@
 
     UIWindow * window = [UIApplication sharedApplication].keyWindow;
     UIView *showview =  [[UIView alloc]init];
-    showview.backgroundColor = [UIColor colorWithWhite:0.2 alpha:0.7];
+    showview.backgroundColor = [UIColor colorWithWhite:0.2 alpha:0.9];
     showview.frame = CGRectMake(1, 1, 1, 1);
     showview.alpha = 1.0f;
     showview.layer.cornerRadius = 5.0f;
     showview.layer.masksToBounds = YES;
     [window addSubview:showview];
-
+    
     UILabel *label = [[UILabel alloc]init];
-    CGSize LabelSize = [message boundingRectWithSize:CGSizeMake(290, 900) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:17]} context:nil].size;
-
-    label.frame = CGRectMake(10, 5, LabelSize.width, LabelSize.height);
     label.text = message;
+    label.numberOfLines = 0;
+    CGSize LabelSize = [label sizeThatFits:(CGSize){SCREEN_WIDTH*0.618,MAXFLOAT}];
+    
+    label.frame = CGRectMake(10, 5, LabelSize.width, LabelSize.height);
     label.textColor = [UIColor whiteColor];
     label.textAlignment = NSTextAlignmentCenter;
     label.backgroundColor = [UIColor clearColor];
@@ -146,10 +181,10 @@
     [showview addSubview:label];
     showview.frame = CGRectMake((SCREEN_WIDTH - LabelSize.width - 20)/2, SCREEN_HEIGHT*0.765, LabelSize.width+20, LabelSize.height+10);
     [UIView animateWithDuration:2 animations:^{
-
+        
         showview.alpha = 0;
     } completion:^(BOOL finished) {
-
+        
         [showview removeFromSuperview];
     }];
 }

@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -28,13 +29,27 @@
                                     <action selector="Btn1_Event:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MJO-ea-31A"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label静安寺科技打卡机山东矿机阿拉山口几点啦速可达" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c3I-ol-bIa">
+                                <rect key="frame" x="112.5" y="470.5" width="150" height="61"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="DBL-FW-ihE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="bml-VD-jfa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="V2K-VD-snD"/>
+                            <constraint firstItem="c3I-ol-bIa" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="1.5" id="ZDc-a6-NVm"/>
                             <constraint firstItem="bml-VD-jfa" firstAttribute="top" secondItem="kRb-8J-J34" secondAttribute="bottom" constant="313" id="ZQg-3i-Ztd"/>
+                            <constraint firstItem="c3I-ol-bIa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nNR-ds-s19"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="lbl" destination="c3I-ol-bIa" id="RmT-Qb-Flv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

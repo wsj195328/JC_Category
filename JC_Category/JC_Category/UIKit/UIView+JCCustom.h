@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+
+typedef NS_ENUM(NSInteger, UIViewBorderLineType) {
+    UIViewBorderLineTypeTop,
+    UIViewBorderLineTypeRight,
+    UIViewBorderLineTypeBottom,
+    UIViewBorderLineTypeLeft,
+};
+
 IB_DESIGNABLE
 
 #define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
@@ -35,6 +43,11 @@ IB_DESIGNABLE
                                opacity:(CGFloat)opacity  // opacity (0 ~ 1)
                           cornerRadius:(CGFloat)cornerRadius;
 
+//MARK: 添加部分边框 (part border)
++(void)JC_AddViewBorder:(UIView *)view
+                  color:(UIColor *)color
+                 border:(float)border
+                   type:(UIViewBorderLineType)borderLineType;
 
 // MARK:贝塞尔曲线切圆角 (clip RadiuCorner)
 - (instancetype)JC_ClipCornerRadius:(CGFloat)value;

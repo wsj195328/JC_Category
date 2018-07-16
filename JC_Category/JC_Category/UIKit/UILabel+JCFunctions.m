@@ -40,9 +40,60 @@
     paragraphStyle.lineSpacing = rowSpace;
     paragraphStyle.baseWritingDirection = NSWritingDirectionLeftToRight;
     paragraphStyle.lineBreakMode = NSLineBreakByTruncatingTail;
+    
     [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [lbl.text length])];
     lbl.attributedText = attributedString;
     return lbl;
 }
+
+//设置富文本
++ (instancetype)JC_SetAttribute:(NSDictionary <NSAttributedStringKey,id> *)dict
+                          Label:(UILabel *)lbl
+                          Range:(NSRange)range; {
+    //创建富文本
+    NSMutableAttributedString *attri = [[NSMutableAttributedString alloc] initWithString:lbl.text];
+    //设置样式
+    [attri addAttributes:dict range:range];
+    //重新赋值
+    lbl.attributedText = attri;
+    return lbl;
+}
+
+/** 在视图中添加可变标签  add tags */
++ (void)JC_AddDynamicTagIntoView:(UIView *)view
+                        lblArray:(NSArray <UILabel *>*)arr
+                         horizon:(CGFloat)horPadding
+                        vertical:(CGFloat)verPadding {
+    
+    if (arr == nil || arr.count == 0) {
+        return;
+    }
+    //视图大小
+    CGSize viewSize = view.frame.size;
+    //label的Y
+    UILabel *first = arr.firstObject;
+    __block CGSize lblSize = [first.text sizeWithAttributes:@{NSFontAttributeName:first.font}];
+    __block CGFloat Y = viewSize.height - lblSize.height - horPadding;
+    
+    [arr enumerateObjectsUsingBlock:^(UILabel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+       
+        UILabel *lbl = [[UILabel alloc] init];
+        lbl = obj;
+
+        static CGFloat X,allW = 0;
+        CGFloat H,W = 0;
+        {
+            W = lblSize.width + horPadding*2;
+            H = lblSize.height + verPadding*2;
+        }
+        
+        X = (idx+1)*15 + allW;
+        allW += W;
+
+        lbl.frame = CGRectMake(X, Y, W, H);
+        [view addSubview:lbl];
+    }];
+}
+
 
 @end

@@ -11,7 +11,7 @@
 #import "TestObj.h"
 #import "JCFundationHeader.h"
 #import "JCBaseModel.h"
-
+#import "UILabel+JCFunctions.h"
 
 @interface ViewController ()
 
@@ -43,7 +43,9 @@
 //    NSLog(@"%@",model);
     
  
-    
+//    [UILabel JC_Label:self.lbl SetRowSpace:10];
+    [UILabel JC_Label:self.lbl ColumnSpace:10];
+     [UIView JC_AddViewBorder:self.lbl color:UIColor.blackColor border:5 type:UIViewBorderLineTypeBottom];
  
 }
 
