@@ -14,6 +14,7 @@
 @interface UIView  ()
 
 @property (nonatomic, strong) UIView *roundLayer;
+@property (nonatomic, strong) UIView *showView;
 
 @end
 
@@ -158,36 +159,60 @@
 
 
 + (void)JC_ShowMessage:(NSString *)message {
-
+    
+    UIView *temp = objc_getAssociatedObject(self, @"showView");
     UIWindow * window = [UIApplication sharedApplication].keyWindow;
-    UIView *showview =  [[UIView alloc]init];
-    showview.backgroundColor = [UIColor colorWithWhite:0.2 alpha:0.9];
-    showview.frame = CGRectMake(1, 1, 1, 1);
-    showview.alpha = 1.0f;
-    showview.layer.cornerRadius = 5.0f;
-    showview.layer.masksToBounds = YES;
-    [window addSubview:showview];
-    
-    UILabel *label = [[UILabel alloc]init];
-    label.text = message;
-    label.numberOfLines = 0;
-    CGSize LabelSize = [label sizeThatFits:(CGSize){SCREEN_WIDTH*0.618,MAXFLOAT}];
-    
-    label.frame = CGRectMake(10, 5, LabelSize.width, LabelSize.height);
-    label.textColor = [UIColor whiteColor];
-    label.textAlignment = NSTextAlignmentCenter;
-    label.backgroundColor = [UIColor clearColor];
-    label.font = [UIFont boldSystemFontOfSize:15];
-    [showview addSubview:label];
-    showview.frame = CGRectMake((SCREEN_WIDTH - LabelSize.width - 20)/2, SCREEN_HEIGHT*0.765, LabelSize.width+20, LabelSize.height+10);
-    [UIView animateWithDuration:2 animations:^{
+    if (!temp) {
         
-        showview.alpha = 0;
-    } completion:^(BOOL finished) {
+        UIView *showview =  [[UIView alloc]init];
+        showview.backgroundColor = [UIColor colorWithWhite:0.2 alpha:0.9];
+        showview.frame = CGRectMake(1, 1, 1, 1);
+        showview.alpha = 1.0f;
+        showview.layer.cornerRadius = 5.0f;
+        showview.layer.masksToBounds = YES;
+        [window addSubview:showview];
+        objc_setAssociatedObject(self, @"showView", showview, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         
-        [showview removeFromSuperview];
-    }];
+        UILabel *label = [[UILabel alloc]init];
+        label.text = message;
+        label.numberOfLines = 0;
+        CGSize LabelSize = [label sizeThatFits:(CGSize){SCREEN_WIDTH*0.618,MAXFLOAT}];
+        
+        label.frame = CGRectMake(10, 5, LabelSize.width, LabelSize.height);
+        label.textColor = [UIColor whiteColor];
+        label.textAlignment = NSTextAlignmentCenter;
+        label.backgroundColor = [UIColor clearColor];
+        label.font = [UIFont boldSystemFontOfSize:15];
+        [showview addSubview:label];
+        showview.frame = CGRectMake((SCREEN_WIDTH - LabelSize.width - 20)/2, SCREEN_HEIGHT*0.765, LabelSize.width+20, LabelSize.height+10);
+        [UIView animateWithDuration:3 animations:^{
+            
+            showview.alpha = 0;
+        } completion:^(BOOL finished) {
+            
+            [showview removeFromSuperview];
+        }];
+    }
+    //视图已经存在
+    else {
+        
+        //消失了
+        if (![window.subviews containsObject:temp]) {
+            
+            temp.alpha = 1;
+            [window addSubview:temp];
+            [UIView animateWithDuration:3 animations:^{
+                
+                temp.alpha = 0;
+            } completion:^(BOOL finished) {
+                
+                [temp removeFromSuperview];
+            }];
+        }
+        //存在的情况不做处理
+    }
 }
+
 
 
 #pragma mark - 坐标计算相关(position relative) ⤵️

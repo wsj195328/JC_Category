@@ -14,6 +14,7 @@
 
 @property (nonatomic, strong) UIImagePickerController *cameraPicker;
 @property (nonatomic, strong) UIImagePickerController *photoPicker;
+@property (nonatomic, strong) dispatch_group_t group_t;
 
 @end
 
@@ -26,6 +27,7 @@
     @synchronized(self) {
         if (_tool == nil) {
             _tool = [[BTWGetPictureTool alloc] init];
+            _group_t = dispatch_group_create();
         }
     }
     return _tool;
@@ -97,6 +99,7 @@ static BTWGetPictureTool *_tool;
     
     //只返回两种状态
     AVAuthorizationStatus state = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+    
     switch (state) {
         case AVAuthorizationStatusNotDetermined:
         {
@@ -113,6 +116,7 @@ static BTWGetPictureTool *_tool;
         case AVAuthorizationStatusAuthorized:
         {
             CameraBlock==nil ?: CameraBlock(AVAuthorizationStatusAuthorized);
+            
         }
             break;
         case AVAuthorizationStatusDenied:
@@ -130,9 +134,68 @@ static BTWGetPictureTool *_tool;
         default:
             break;
     }
-    
-    
 }
+
+
+//预加载控制器
++ (void)JC_forwardTakePhoto:(void(^)(UIImagePickerController *))pickBlock {
+    
+    AVAuthorizationStatus state = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+    if (state == AVAuthorizationStatusAuthorized) {
+        
+        dispatch_group_t group = dispatch_group_create();
+        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+        dispatch_group_async(group,queue, ^{
+            if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+                
+                UIImagePickerController *pickVC = [[UIImagePickerController alloc] init];
+                pickVC.sourceType = UIImagePickerControllerSourceTypeCamera;
+                pickVC.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+                pickVC.mediaTypes = @[(NSString *)kUTTypeImage];
+                pickVC.allowsEditing = YES;
+                pickVC.delegate = [BTWGetPictureTool shareTool];
+                [BTWGetPictureTool shareTool].cameraPicker = pickVC;
+            }
+        });
+        dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+            
+            NSLog(@"拍照");
+            pickBlock==nil ?: pickBlock([BTWGetPictureTool shareTool].cameraPicker);
+        });
+    }
+}
+
++ (void)JC_forwardSelectPhoto:(void(^)(UIImagePickerController *))pickBlock {
+    
+    //请求权限
+    PHAuthorizationStatus state = [PHPhotoLibrary authorizationStatus];
+    if (state == PHAuthorizationStatusAuthorized) {
+        
+        dispatch_group_t group = dispatch_group_create();
+        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+        dispatch_group_async(group, queue, ^{
+           
+            if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
+                
+                UIImagePickerController *pickVC = [[UIImagePickerController alloc] init];
+                pickVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                pickVC.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+                pickVC.mediaTypes = @[(NSString *)kUTTypeImage];
+                pickVC.allowsEditing = YES;
+                pickVC.delegate = [BTWGetPictureTool shareTool];
+                [BTWGetPictureTool shareTool].photoPicker = pickVC;
+            }
+        });
+     
+        dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+            
+            NSLog(@"选择照片");
+            pickBlock==nil ?: pickBlock([BTWGetPictureTool shareTool].photoPicker);
+        });
+    }
+}
+
+
 
 //获取控制器
 + (void)JC_TakePhoto:(void(^)(UIImagePickerController *))pickBlock {
@@ -142,22 +205,19 @@ static BTWGetPictureTool *_tool;
         
         if ([BTWGetPictureTool shareTool].cameraPicker == nil) {
             
-            UIImagePickerController *pickVC = [[UIImagePickerController alloc] init];
-            pickVC.sourceType = UIImagePickerControllerSourceTypeCamera;
-            pickVC.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-            pickVC.mediaTypes = @[(NSString *)kUTTypeImage];
-            pickVC.allowsEditing = YES;
-            pickVC.delegate = [BTWGetPictureTool shareTool];
-            [BTWGetPictureTool shareTool].cameraPicker = pickVC;
-            pickBlock==nil ?: pickBlock(pickVC);
+            //获取
+            [self JC_forwardTakePhoto:^(UIImagePickerController *pickVC) {
+                
+                pickBlock==nil ?: pickBlock(pickVC);
+                
+            }];
         }
         else {
              pickBlock==nil ?: pickBlock([BTWGetPictureTool shareTool].cameraPicker);
         }
     }
-    
-
 }
+
 + (void)JC_SelectPicture:(void(^)(UIImagePickerController *))selectBlock {
     
     PHAuthorizationStatus state = [PHPhotoLibrary authorizationStatus];
@@ -165,14 +225,11 @@ static BTWGetPictureTool *_tool;
         
         if ([BTWGetPictureTool shareTool].photoPicker == nil) {
             
-            UIImagePickerController *pickVC = [[UIImagePickerController alloc] init];
-            pickVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-            pickVC.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-            pickVC.mediaTypes = @[(NSString *)kUTTypeImage];
-            pickVC.allowsEditing = YES;
-            pickVC.delegate = [BTWGetPictureTool shareTool];
-            [BTWGetPictureTool shareTool].photoPicker = pickVC;
-            selectBlock==nil ?: selectBlock(pickVC);
+            //获取
+            [self JC_forwardSelectPhoto:^(UIImagePickerController *pickVC) {
+                
+                selectBlock==nil ?: selectBlock(pickVC);
+            }];
         }
         else {
             selectBlock==nil ?: selectBlock([BTWGetPictureTool shareTool].photoPicker);
@@ -194,9 +251,6 @@ static BTWGetPictureTool *_tool;
     else if (picker.sourceType == UIImagePickerControllerSourceTypePhotoLibrary) {
         [picker dismissViewControllerAnimated:YES completion:nil];
     }
-    
-    
-    
 }
 
 
